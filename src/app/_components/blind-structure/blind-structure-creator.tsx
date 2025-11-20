@@ -30,6 +30,7 @@ export function BlindStructureCreator({ open, onOpenChange, onAcceptStructure, l
   const [startingStack, setStartingStack] = useState<number>(20000)
   const [targetTournamentDuration, setTargetTournamentDuration] = useState<number>(180)
   const [numberOfPlayers, setNumberOfPlayers] = useState<number>(numberOfPlayersInit)
+  const [smallestChip, setSmallestChip] = useState<number>(25)
 
   const [calculatedLevels, setCalculatedLevels] = useState<BlindLevel[]>([])
   const [editableLevels, setEditableLevels] = useState<BlindLevel[]>([])
@@ -46,7 +47,7 @@ export function BlindStructureCreator({ open, onOpenChange, onAcceptStructure, l
       targetTournamentDuration, 
       levelDuration,
       numberOfPlayers, // Use a default value; could be made configurable
-      smallestChip: 25 // Assuming smallest chip denomination is 25; could be made configurable
+      smallestChip // Assuming smallest chip denomination is 25; could be made configurable
     })
     setCalculatedLevels(levels)
     setEditableLevels(levels)
@@ -81,9 +82,11 @@ export function BlindStructureCreator({ open, onOpenChange, onAcceptStructure, l
               startingStack={startingStack}
               targetTournamentDuration={targetTournamentDuration}
               numberOfPlayers={numberOfPlayers}
+              smallestChip={smallestChip}
               onStartingStackChange={setStartingStack}
               onTargetTournamentDurationChange={setTargetTournamentDuration}
               onNumberOfPlayersChange={setNumberOfPlayers}
+              onSmallestChipChange={setSmallestChip}
             />
             <Button onClick={suggestBlindStructure} className="w-full">
               <Calculator className="h-4 w-4 mr-2" />

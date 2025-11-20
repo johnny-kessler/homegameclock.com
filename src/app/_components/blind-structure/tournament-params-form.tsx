@@ -7,18 +7,22 @@ interface TournamentParamsFormProps {
   startingStack: number
   targetTournamentDuration: number
   numberOfPlayers: number
+  smallestChip: number
   onStartingStackChange: (n: number) => void
   onTargetTournamentDurationChange: (n: number) => void
   onNumberOfPlayersChange: (n: number) => void
+  onSmallestChipChange: (n: number) => void
 }
 
 export function TournamentParamsForm({
   startingStack,
   targetTournamentDuration,
   numberOfPlayers,
+  smallestChip,
   onStartingStackChange,
   onTargetTournamentDurationChange,
-  onNumberOfPlayersChange
+  onNumberOfPlayersChange,
+  onSmallestChipChange
 }: TournamentParamsFormProps) {
   return (
     <div className="grid grid-cols-2 gap-4">
@@ -52,7 +56,17 @@ export function TournamentParamsForm({
           value={numberOfPlayers}
           onChange={(e) => onNumberOfPlayersChange(Number(e.target.value))}
           min={2}
-          max={100}
+          max={1000}
+        />
+      </div>
+      <div className="space-y-2">
+        <Label htmlFor="smallest-chip">Smallest Chip Denomination</Label>
+        <Input
+          id="smallest-chip"
+          type="number"
+          value={smallestChip}
+          onChange={(e) => onSmallestChipChange(Number(e.target.value))}
+          min={1}
         />
       </div>
     </div>
