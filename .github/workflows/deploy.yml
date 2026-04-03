@@ -1,0 +1,8 @@
+name: Deploy
+on:
+  push:
+    branches: [main]
+jobs:
+  deploy:
+    uses: johnny-kessler/infrastructure/.github/workflows/deploy.yml@main
+    secrets: inherit
