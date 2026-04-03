@@ -1,4 +1,0 @@
-# homegameclock.com
-
-
-TODO: translations
